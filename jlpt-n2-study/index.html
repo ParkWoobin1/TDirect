@@ -824,7 +824,8 @@ function kanaDistractors(correct,seed){
    const chars=arr.slice();chars[i]=swaps[k];
    const ch=arr[i],v=chars.join("");
    const consonant=!"あいうえおんーゃゅょっ".includes(ch);
-   const priority=(consonant?20:0)+(i>0&&i<n-1?6:0)-(i===n-1?6:0)-k*.1;
+   const small="ゃゅょっ".includes(ch);
+   const priority=(consonant?20:small?13:0)+(i>0&&i<n-1?6:0)-(i===n-1?6:0)-k*.1;
    variants.push({text:v,index:i,priority});
   }
  }
